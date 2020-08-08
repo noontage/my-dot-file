@@ -1,24 +1,11 @@
-# starship
 eval "$(starship init bash)"
 
-# direnv
-eval "$(direnv hook bash)"
+# Wasmer
+export WASMER_DIR="/Users/shinoda/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
-# c/c++
-export set CXX='ccache c++'
+# Histry
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+shopt -u histappend
 
-# golang
-export GOPATH="$HOME/go"
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# bash
-export HISTSIZE=50000
-
-# alias
-alias ll='ls -lha'
-
-# git
-source ~/.git-completion.bash
+export PATH=$PATH:./node_modules/.bin
